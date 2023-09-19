@@ -71,9 +71,9 @@ pub async fn prover() -> Result<(), JsValue> {
 
     let start_time = Instant::now();
 
-    let (mut client_ws_meta, mut client_ws_stream) = WsMeta::connect( "ws://localhost:55688", None ).await
+    let (mut client_ws_meta, mut client_ws_stream) = WsMeta::connect( "wss://notary.gossip.cash:55688", None ).await
         .expect_throw( "assume the client ws connection succeeds" );
-    let (mut notary_ws_meta, mut notary_ws_stream) = WsMeta::connect( "ws://localhost:7788", None ).await
+    let (mut notary_ws_meta, mut notary_ws_stream) = WsMeta::connect( "wss://notary.gossip.cash:7047", None ).await
         .expect_throw( "assume the notary ws connection succeeds" );
 
     let mut client_ws_stream_into = client_ws_stream.into_io();
